@@ -102,12 +102,10 @@
 
         body{
             font-family: "ScalaSans-RegularLF", 'Work Sans', sans-serif!important;
-
         }
 
         b{
             font-family: "ScalaSans-RegularLF", 'Work Sans', sans-serif!important;
-
         }
 
         @media (min-width: 100px) and (max-width: 1050px) {
@@ -173,14 +171,14 @@
                 width: 15px;
             }
             .rightArrow{
-                visibility:hidden!important;
+                /*visibility:hidden!important;*/
                 margin-top:-20px;
-                margin-left:17%;
+                margin-left:6%;
             }
             .leftArrow{
-                visibility:hidden!important;
-                margin-top:-90px;
-                margin-left:15%;
+                /*visibility:hidden!important;*/
+                margin-top:-65px; /*-90px*/
+                margin-left:1%;
             }
             .location-title{
                 font-size: 1.5em;
@@ -232,6 +230,47 @@
     <div class="artphoto">
         <img src="/img/{{$art->img}}" alt="{{$art->title}}" style="max-width:650px;max-height:650px;">
     </div>
+
+    <div style='    margin-top: 100px;
+    margin-left: 40px;'>
+
+        @if ($artbefore!=null)
+
+            <div class="leftArrow">
+
+                <a  href="/art/{{$artbefore->url_mapped}}">
+                    <img class="newImages" src="/img/left.png" alt="{{$artbefore->title}}">
+                </a>
+
+            </div>
+
+        @endif
+
+
+        @if ($artbefore==null)
+
+            <div class="leftArrow">
+
+
+                <img class="newImages" src="/img/ffffff.png">
+
+
+            </div>
+
+        @endif
+
+        @if ($artafter!=null)
+
+            <div class="rightArrow">
+
+                <a  href="/art/{{$artafter->url_mapped}}">
+                    <img class="newImages" src="/img/right.png" alt="{{$artafter->title}}"  >
+                </a>
+            </div>
+        @endif
+    </div>
+
+
     <div class="arttitle">
         <p><b>{{ $art->title }}</b></p>
     </div>
@@ -248,45 +287,4 @@
             <p>{{ $art->description2 }}</p>
         </div>
     @endif
-    <div>
-
-
-
-
-
-        @if ($artbefore!=null)
-
-            <div class="leftArrow">
-
-                <a  href="/art/{{$artbefore->url_mapped}}">
-                    <img class="newImages" src="/img/left.png" alt="{{$artbefore->title}}">
-                </a>
-
-            </div>
-
-        @endif
-
-    </div>
-    @if ($artbefore==null)
-
-        <div class="leftArrow">
-
-
-            <img class="newImages" src="/img/ffffff.png">
-
-
-        </div>
-
-    @endif
-
-    @if ($artafter!=null)
-
-        <div class="rightArrow">
-
-            <a  href="/art/{{$artafter->url_mapped}}">
-                <img class="newImages" src="/img/right.png" alt="{{$artafter->title}}"  >
-            </a>
-
-            @endif
-        </div>
 @endsection
